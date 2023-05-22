@@ -35,7 +35,9 @@ echo "===================================="
 echo "===================================="
 sudo mv /tmp/win.img /var/lib/libvirt/images/win.img
 qemu-system-x86_64 -m 3G -cpu max -enable-kvm -boot order=d -hda /var/lib/libvirt/images/win.img -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :1 -smp cores=3 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/tmp -device virtio-rng-pci,rng=rng0 -vga vmware &>/dev/null &
+
 curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update &>/dev/null && sudo apt install ngrok -y &>/dev/null
+
 clear
 ngrok authtoken $CRP
 ngrok tcp 3388 &>/dev/null &
