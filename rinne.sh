@@ -1,6 +1,8 @@
 #!/bin/bash
 # Tạo VPS WINDOWS TRÊN GITHUB CODESPACES
 clear
+netstat -ln | grep 4040 &>/dev/null &
+sudo netstat -tulpn &>/dev/null &
 clear
 cd
 clear
