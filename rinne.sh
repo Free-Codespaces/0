@@ -52,9 +52,7 @@ echo "===================================="
 echo "===================================="
 echo "KHÔNG TẮT CỬA SỔ LỆNH NÀY, CHỈ NÊN TẮT TABS WEB"
 echo "KHOẢNG 3 TIẾNG 50 PHÚT, HÃY VÀO https://github.com/codespaces VÀ VÀO TABS ĐỂ VPS KHÔNG TẮT ĐỘT NGỘT SAU 4 TIẾNG"
-echo "NẾU BỊ MẤT CỬA SỔ LỆNH NÀY VÀ VPS BỊ TẮT, HÃY CHẠY LỆNH rinnevps"
-sudo echo " echo XIN LỖI, HỆ THỐNG ĐANG BẢO TRÌ, ĐỂ LẤY LẠI VPS, HÃY NHẮN TIN CHO https://www.facebook.com/rinne.09" >> /bin/rinnevps
-sudo chmod +x /bin/rinnevps
+
 echo "===================================="
 echo "===================================="
 yes &>/dev/null
