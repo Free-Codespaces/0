@@ -25,15 +25,16 @@ echo "Đang tiến hành cài đặt trình ảo hoá KVM.."
 echo "===================================="
 echo "===================================="
 sudo apt update &>/dev/null && echo "Sắp xong..." && sudo apt install -y qemu-system-x86 qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils &>/dev/null && sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils -y &>/dev/null
-sudo adduser $USER libvirt
-sudo adduser $USER kvm
+sudo adduser $USER libvirt &>/dev/null &
+sudo adduser $USER kvm &>/dev/null &
 echo "===================================="
 echo "===================================="
 sudo mv /tmp/win.img /var/lib/libvirt/images/win.img
 sudo qemu-system-x86_64 -m 3G -cpu max -enable-kvm -boot order=d -hda /var/lib/libvirt/images/win.img -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :1 -smp cores=3 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/tmp -device virtio-rng-pci,rng=rng0 -vga vmware &>/dev/null &
 curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update &>/dev/null && sudo apt install ngrok -y &>/dev/null
-sudo ngrok authtoken $CRP       &>/dev/null &
-sudo ngrok tcp 3388 &>/dev/null &
+clear
+ngrok authtoken $CRP
+ngrok tcp 3388 &>/dev/null &
 clear
 echo "===================================="
 echo "===================================="
@@ -47,7 +48,7 @@ echo "===================================="
 echo "===================================="
 echo "KHÔNG TẮT CỬA SỔ LỆNH NÀY, CHỈ NÊN TẮT TABS WEB'
 echo "KHOẢNG 3 TIẾNG 50 PHÚT, HÃY VÀO https://github.com/codespaces VÀ VÀO TABS ĐỂ VPS KHÔNG TẮT ĐỘT NGỘT SAU 4 TIẾNG"
-echo 'NẾU BỊ MẤT CỬA SỔ LỆNH NÀY VÀ VPS BỊ TẮT, HÃY CHẠY LỆNH "rinnevps"'
+echo "NẾU BỊ MẤT CỬA SỔ LỆNH NÀY VÀ VPS BỊ TẮT, HÃY CHẠY LỆNH rinnevps"
 sudo echo " echo XIN LỖI, HỆ THỐNG ĐANG BẢO TRÌ, ĐỂ LẤY LẠI VPS, HÃY NHẮN TIN CHO https://www.facebook.com/rinne.09" >> /bin/rinnevps
 sudo chmod +x /bin/rinnevps
 echo "===================================="
