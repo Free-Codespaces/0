@@ -5,7 +5,9 @@ clear
 echo "===================================="
 echo " RINNE VPS "
 echo " Code tạo bởi: Filbertt Matthew (Facebook)
+
 echo "Liên hệ tạo images: https://www.facebook.com/rinne.09"
+
 echo "===================================="
 sleep 4
 clear
