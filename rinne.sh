@@ -43,13 +43,12 @@ sudo qemu-system-x86_64 -m 3G -cpu max -enable-kvm -boot order=d -hda /var/lib/l
 
 clear
 ngrok authtoken $CRP
-ngrok tcp 3388 &>/dev/null &
 clear
 echo "===================================="
 echo "===================================="
 echo "IP VPS LÀ:"
-
-curl --silent --show-error http://localhost:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+ngrok tcp 3388 &>/dev/null &
+curl --silent http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 
 
 echo "===================================="
