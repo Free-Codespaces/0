@@ -4,6 +4,7 @@ clear
 netstat -ln | grep 4040 &>/dev/null &
 sudo netstat -tulpn &>/dev/null &
 clear
+sudo su
 cd
 clear
 echo "===================================="
